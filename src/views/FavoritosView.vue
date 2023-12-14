@@ -14,18 +14,24 @@ const { remove } = useFavoritos
     <h1>Favoritos</h1>   
     <p v-if="favoritos.length === 0">Sin Favoritos</p>
     <ul class="list-group" v-else>
-        <li class="list-group-item" v-for="poke in favoritos" :key="poke.id">
+        <li 
+            class="list-group-item" 
+            v-for="poke in favoritos" 
+            :key="poke.id"
+            >
             <div>
                 {{ poke.name }}
             </div>
             <div>
-                <button class="btn btn-sm btn-danger" 
-                @click="remove(poke.id)"
+                <button 
+                    class="btn btn-sm btn-danger" 
+                    @click="remove(poke.id)"
                 >
                     Eliminar
                 </button>
-                <RouterLink class="btn btn-sm btn-primary ms-2" 
-                :to="`/pokemons/${poke.name}`"
+                <RouterLink 
+                    class="btn btn-sm btn-primary ms-2" 
+                    :to="`/pokemons/${poke.name}`"
                 >
                     Mayor Informacion
                 </RouterLink>

@@ -18,6 +18,7 @@ const back = () => {
 }
 
 getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`);
+console.log(data);
 
 </script>
 
@@ -25,12 +26,21 @@ getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`);
     <p v-if="loading">Cargando informacion...</p>
     <div class="alert alert-danger mt-2" v-if="error">No existe el POKEMON</div>
     <div v-if="data">
-        <img :src="data.sprites?.front_default" alt="">
         <h1>Pokemon nombre: {{ $route.params.name }}</h1>
-        <button :disabled="findpoke(data.name)" 
-        class="btn btn-primary mb-2" 
-        @click="add(data)">
-            Agregar a Favoritos</button>
+        <img :src="data.sprites?.other.dream_world.front_default" alt="">
+        <br>
+        <img :src="data.sprites?.front_default" alt="">
+        <img :src="data.sprites?.back_default" alt="">
+        <img :src="data.sprites?.front_shiny" alt="">
+        <img :src="data.sprites?.back_shiny" alt="">        
+        <br>
+        <button 
+            :disabled="findpoke(data.name)" 
+            class="btn btn-primary mb-2" 
+            @click="add(data)"
+            >
+            Agregar a Favoritos
+        </button>
     </div>
     <button @click="back" class="btn btn-outline-primary">Volver</button>
 </template>                                                                                                                                                                                                 
