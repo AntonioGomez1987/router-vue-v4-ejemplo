@@ -5,7 +5,7 @@ import { useGetData } from '@/composables/getData.js'
 
 const {data, loading, getData, error } = useGetData()
 
-getData('https://pokeapi.co/api/v2/pokemon/');
+getData('https://pokeapi.co/api/v2/pokemon');
 
 </script>
 
@@ -22,8 +22,20 @@ getData('https://pokeapi.co/api/v2/pokemon/');
             </li>
         </ul>
         <div class="div mt-2">
-            <button :disabled="!data.previous" class="btn btn-warning me-2" @click="getData(data.previous)">Previous</button>
-            <button :disabled="!data.next" class="btn btn-primary" @click="getData(data.next)">Next</button>
+            <button 
+                :disabled="!data.previous" 
+                class="btn btn-warning me-2" 
+                @click="getData(data.previous)"
+                >
+                Previous
+            </button>
+            <button 
+                :disabled="!data.next" 
+                class="btn btn-primary" 
+                @click="getData(data.next)"
+                >
+                Next
+            </button>
         </div>
     </div>
 </template>
